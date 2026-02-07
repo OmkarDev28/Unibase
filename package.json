@@ -1,19 +1,27 @@
 {
   "name": "unibase",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "mongoose": "^9.0.0",
-    "pg": "^8.16.3"
-  },
-  "devDependencies": {
-    "eslint": "^9.39.1"
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.11",
+    "openai": "^6.17.0",
+    "pg": "^8.18.0",
+    "uuid": "^13.0.0"
   }
 }
