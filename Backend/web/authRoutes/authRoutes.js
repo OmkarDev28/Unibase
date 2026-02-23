@@ -1,5 +1,5 @@
 import express from "express";
-import pool from '../config/pg.js';
+import pool from '../../config/pg.js';
 import jwt from "jsonwebtoken";
 
 
@@ -48,6 +48,8 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    console.log(req.body);
+    
     const { username, password} = req.body;
 
     const client = await pool.connect();
