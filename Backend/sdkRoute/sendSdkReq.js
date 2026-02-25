@@ -1,12 +1,18 @@
 import express from "express";
 import pool from '../config/pg.js';
 import { executeSql } from "../utils-sql/executeSql.js";
+import { createUser } from "../utils/createUser.js";
+import { loginWithUsername } from "../utils/loginWithUsername.js";
+
 
 const router = express.Router();
 
-router.post("/sql", async (req, res) => {
+router.post("/query", async (req, res) => {
     const payload = req.body;
     const api_key = req.headers['ub-api-key'];
+
+    console.log(payload);
+    
 
     
     
@@ -34,6 +40,11 @@ router.post("/sql", async (req, res) => {
                     response = await loginWithUsername(api_key, payload);
                     const loginStatus = response.success ? 200 : 400;
                     res.status(loginStatus).json(response);
+                    break;
+                case "create_user":
+                    response = await createUser(api_key, payload);
+                    const createStatus = response.success ? 201 : 400; 
+                    res.status(createStatus).json(response);
                     break;
                 // ... more cases ...
                 default:

@@ -3,7 +3,7 @@ import pool from '../config/pg.js';
 import { randomBytes } from "crypto";
 import { setupProject } from "../utils/setupProject.js";
 import { getProjectInfo } from "../utils-project/getProjectInfo.js";
-import { getAllTables } from "../utils-project/getAllTables.js";
+import { getAllTables } from "../../web/controllers/getAllTables.js";
 import { getTableData } from "../utils-project/getTableData.js";
 import { log } from "console";
 
