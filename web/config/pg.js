@@ -3,7 +3,7 @@ const { Pool } = pkg;
 import 'dotenv/config';
 
 const pool = new Pool({
-  connectionString: process.env.PG_URL,
+  connectionString: process.env.PG_URL_IPV6,
   // ⚡️ CRITICAL: Render & AWS RDS require SSL
   ssl: {
     rejectUnauthorized: false 
