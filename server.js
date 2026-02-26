@@ -28,7 +28,7 @@ import projectRoutes from './web/routes/projectRoutes.js';
 app.use('/api/internal', authRoutes);
 app.use('/api/internal', projectRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
 });
 
