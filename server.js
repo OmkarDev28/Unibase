@@ -21,6 +21,10 @@ app.use(express.json());
 app.use('/api', sendSdkReqRoute)
 app.use('/api', sendSqlReqRoute);
 
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "Engine is alive", timestamp: new Date() });
+});
+
 // Web routes
 import authRoutes from './web/routes/authRoutes.js';
 import projectRoutes from './web/routes/projectRoutes.js';
