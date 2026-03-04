@@ -3,6 +3,8 @@ import cors from "cors";
 
 import sendSqlReqRoute from './Backend/sqlRoute/sendSqlReq.js';
 import sendSdkReqRoute from './Backend/sdkRoute/sendSdkReq.js';
+import queryReq from './Backend/sdkRoute/query.js';
+import authReq from './Backend/sdkRoute/auth.js';
 import "dotenv/config";
 
 
@@ -18,8 +20,10 @@ app.use(cors());
 app.use(express.json());
 
 
-app.use('/api', sendSdkReqRoute)
-app.use('/api', sendSqlReqRoute);
+//app.use('/api', sendSdkReqRoute)
+//app.use('/api', sendSqlReqRoute);
+app.use('/api', queryReq)
+app.use('/api', authReq);
 
 app.get("/health", (req, res) => {
     res.status(200).json({ status: "Engine is alive", timestamp: new Date() });
