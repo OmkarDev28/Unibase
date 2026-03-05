@@ -13,7 +13,6 @@ export const insertDocument = async (req, res) => {
     const schemaName = `proj_${projectId}`;
 
     try {
-        // 1. Get the collection_id first (Business logic: we need the FK)
         const collectionQuery = `
             SELECT id FROM "${schemaName}"._ub_collections 
             WHERE name = $1 LIMIT 1;
