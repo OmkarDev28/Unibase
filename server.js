@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 
+//Backend Routes
 import sendSqlReqRoute from './Backend/sqlRoute/sendSqlReq.js';
 import sendSdkReqRoute from './Backend/sdkRoute/sendSdkReq.js';
 import queryReq from './Backend/sdkRoute/query.js';
@@ -32,9 +33,11 @@ app.get("/health", (req, res) => {
 // Web routes
 import authRoutes from './web/routes/authRoutes.js';
 import projectRoutes from './web/routes/projectRoutes.js';
+import collectionRoutes from './web/routes/collectionRoutes.js';
 
 app.use('/api/internal', authRoutes);
 app.use('/api/internal', projectRoutes);
+app.use('/api/internal', collectionRoutes);
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);

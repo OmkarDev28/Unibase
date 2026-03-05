@@ -1,4 +1,3 @@
-// Helper to wrap strings in quotes, but leave numbers alone
 function formatValue(val) {
     if (typeof val === 'string') {
         return "'" + val + "'";
@@ -6,7 +5,6 @@ function formatValue(val) {
     return val;
 }
 
-// Manual WHERE clause builder
 function buildWhere(conditions) {
     if (!conditions || conditions.length === 0) {
         return "";
