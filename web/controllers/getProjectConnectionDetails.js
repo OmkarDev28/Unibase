@@ -8,7 +8,7 @@ export const getProjectConnectionDetails = async (req, res) => {
     try {
         
         const result = await pool.query(
-            `SELECT api_key 
+            `SELECT api_key, project_name
              FROM unibase_system.projects 
              WHERE project_id = $1`,
             [projectId]
@@ -24,7 +24,7 @@ export const getProjectConnectionDetails = async (req, res) => {
             success: true,
             message: "Connection details retrieved successfully",
             data: {
-                projectName: projectData.name,
+                projectName: projectData.project_name,
                 baseUrl: baseUrl,
                 apiKey: projectData.api_key || null 
             }
