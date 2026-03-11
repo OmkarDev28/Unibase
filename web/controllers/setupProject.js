@@ -68,12 +68,10 @@ export const setupProject = async (userId, projectName) => {
         `);
 
         await client.query(`
-            CREATE TABLE "_ub_collection_data" (
-                id UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- The "Node ID"
-                collection_id UUID REFERENCES "_ub_collections"(id) ON DELETE CASCADE,
-                data JSONB NOT NULL, -- The rich metadata/properties
-                created_at TIMESTAMP DEFAULT NOW(),
-                updated_at TIMESTAMP DEFAULT NOW()
+            CREATE TABLE IF NOT EXISTS "_ub_collections" (
+                "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(), -- e.g., 97ba3758...
+                "name" VARCHAR(255) NOT NULL UNIQUE,             -- e.g., 'posts'
+                "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
             );
         `);
         

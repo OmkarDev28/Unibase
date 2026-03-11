@@ -17,6 +17,7 @@ router.get("/:projectId/connect", getProjectConnectionDetails);
 
 
 router.post('/create-project', async (req, res) => {
+    console.log("saf");
     
     const { userId, projectName } = req.body;
     
@@ -25,12 +26,11 @@ router.post('/create-project', async (req, res) => {
         res.status(201).json({
             ...newProject
         });
-
-    }catch (err) {
-        
-        throw err;
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
     } 
 });
+
 
 router.get("/get-projects", async (req, res) => {
     
