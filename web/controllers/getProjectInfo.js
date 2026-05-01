@@ -1,12 +1,13 @@
 import express from "express";
-import pool from "../config/pg.js";
+import systemPool from "../config/systemPool.js";
+
+
 
 export const getProjectInfo = async (userId) => {
 
     let schemaName;
-    
-    console.log("a");
 
+    const pool = await getPoolForProjectId(projectId);
     const client = await pool.connect();
 
     try {

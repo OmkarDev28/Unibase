@@ -1,11 +1,13 @@
-import pool from "../config/pg.js";
+import systemPool from "../config/systemPool.js";
+
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "Some secrete";
 
 export const registerAdmin = async (req, res) => {
-    
+    const pool = await getPoolForProjectId(projectId);
+
     const { username, email, password } = req.body;
 
     if (!username || !password) {

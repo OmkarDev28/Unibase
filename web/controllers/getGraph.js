@@ -1,7 +1,10 @@
-import pool from "../config/pg.js";
+import { getPoolForProjectId } from "../config/poolRegistry.js";
+
 
 export const getGraphNodes = async (req, res) => {
     const { projectId } = req.query;
+
+    const pool = await getPoolForProjectId(projectId);
 
     if (!projectId) {
         return res.status(400).json({

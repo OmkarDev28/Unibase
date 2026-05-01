@@ -1,4 +1,4 @@
-import pool from "../config/pg.js";
+import systemPool from "../config/systemPool.js";
 
 export const getSchemaId = async (api_key) => {
 

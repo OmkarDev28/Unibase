@@ -1,6 +1,9 @@
-import pool from "../config/pg.js";
+import { getPoolForProjectId } from "../config/poolRegistry.js";
+
+
 
 export const getAllTables = async (projectId) => {
+    const pool = await getPoolForProjectId(projectId);
      let schemaName = "proj_" + projectId;
      
      try {

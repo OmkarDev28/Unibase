@@ -1,5 +1,5 @@
 // helpers/logger.js
-import pool from "../config/pg.js";
+import systemPool from "../config/systemPool.js";
 
 export const logSystemAction = (projectId, action, status, durationMs, error = null, metadata = {}) => {
     // 1. Safety: Ensure action is truncated to prevent table bloat

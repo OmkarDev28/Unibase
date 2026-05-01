@@ -1,9 +1,11 @@
 import express from "express";
-import pool from '../config/pg.js';
+import { getPoolForProjectId } from "../config/poolRegistry.js";
 import { generateApiKey } from "./createApiKey.js";
 
 export const setupProject = async (userId, projectName) => {
     const newKey = generateApiKey();
+
+    const pool = await getPoolForProjectId(projectId);
 
     const client = await pool.connect();
 

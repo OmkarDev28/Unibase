@@ -1,7 +1,10 @@
-import pool from "../config/pg.js";
+import systemPool from "../config/systemPool.js";
+
 
 export const getProjectConnectionDetails = async (req, res) => {
     const { projectId } = req.params;
+
+    const pool = await getPoolForProjectId(projectId);
     
     const baseUrl = process.env.ENGINE_BASE_URL + `/${projectId}`;
 
