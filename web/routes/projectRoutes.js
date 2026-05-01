@@ -1,6 +1,6 @@
 import express from "express";
 
-import { setupProject } from "../controllers/setupProject.js";
+import { webSetupProject } from "../controllers/webSetupProject.js";
 import { getAllTables } from "../controllers/getAllTables.js";
 import { getProjectInfo } from "../controllers/getProjectInfo.js";
 import { getTableData } from "../controllers/getTableData.js";
@@ -22,7 +22,7 @@ router.post('/create-project', async (req, res) => {
     const { userId, projectName } = req.body;
     
     try {
-        const newProject = await setupProject(userId, projectName);
+        const newProject = await webSetupProject(userId, projectName);
         res.status(201).json({
             ...newProject
         });
